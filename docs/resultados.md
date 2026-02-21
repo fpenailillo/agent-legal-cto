@@ -11,7 +11,7 @@
 | Distribución por tipo de tarea | 250 por tipo (balanceado) |
 | Tipos de tarea | analizar_clausula, comparar_propuestas, alerta_renovacion, estrategia_negociacion |
 | Formato de salida | JSONL con campos: instruccion, entrada, salida, tipo_tarea |
-| Modelo teacher | Llama 3.1 70B (Databricks) |
+| Modelo teacher | Llama 3.3 70B (Databricks AI Gateway) |
 | Tiempo de generación | ~30 minutos |
 | Costo estimado | ~$15-20 USD |
 
@@ -86,7 +86,7 @@ Se analizan 20 ejemplos representativos (5 por tipo de tarea) comparando las res
 
 | Recurso | Plataforma | Costo |
 |---------|------------|-------|
-| Generación datos sintéticos (Llama 3.1 70B) | Databricks Free Edition | ~$15-20 USD |
+| Generación datos sintéticos (Llama 3.3 70B) | Databricks Free Edition | ~$15-20 USD |
 | Fine-tuning QLoRA Qwen2.5-7B (GPU T4) | Google Colab gratuito | $0 |
 | Almacenamiento adapter y dataset | Google Drive gratuito (15GB) | $0 |
 | Demo del agente | Google Colab gratuito | $0 |

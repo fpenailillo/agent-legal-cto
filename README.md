@@ -18,7 +18,7 @@ Los CTOs gestionan decenas de contratos con proveedores tecnológicos (AWS, Azur
 ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐
 │  01 — Generación    │     │  02 — Fine-Tuning   │     │  03 — Evaluación    │     │  04 — Demo Agente   │
 │                     │     │                     │     │                     │     │                     │
-│  Llama 3.1 70B      │────▶│  Qwen2.5-7B + QLoRA │────▶│  ROUGE-L            │────▶│  LangChain ReAct    │
+│  Llama 3.3 70B      │────▶│  Qwen2.5-7B + QLoRA │────▶│  ROUGE-L            │────▶│  LangChain ReAct    │
 │  (Databricks API)   │     │  (GPU T4, Colab)    │     │  BERTScore F1       │     │  4 herramientas     │
 │                     │     │                     │     │                     │     │                     │
 │  Salida: JSONL      │     │  Salida: Adapter    │     │  Salida: JSON       │     │  Salida: Análisis   │
@@ -61,12 +61,11 @@ Los CTOs gestionan decenas de contratos con proveedores tecnológicos (AWS, Azur
 **Recurso:** API de Databricks (no requiere GPU)
 
 1. Abrir el notebook en Google Colab
-2. Configurar secrets en Colab:
+2. Configurar secret en Colab:
    - Panel izquierdo → icono de llave → Nuevo secreto
-   - `DATABRICKS_HOST`: URL del workspace de Databricks
-   - `DATABRICKS_TOKEN`: token de acceso personal
+   - `DATABRICKS_TOKEN`: token de acceso personal de Databricks
 3. Ejecutar todas las celdas (Ctrl+F9)
-4. El notebook genera 1000 ejemplos de contratos usando Llama 3.1 70B como modelo teacher
+4. El notebook genera 1000 ejemplos de contratos usando Llama 3.3 70B como modelo teacher vía AI Gateway
 5. Los ejemplos se distribuyen en 4 tipos de tarea (250 cada uno):
    - `analizar_clausula` — Análisis de riesgos en cláusulas contractuales
    - `comparar_propuestas` — Comparación de ofertas de proveedores
@@ -164,7 +163,7 @@ Documentación detallada en [`docs/decisiones_diseno.md`](docs/decisiones_diseno
 
 | Recurso | Plataforma | Costo |
 |---------|------------|-------|
-| Generación de datos (Llama 3.1 70B) | Databricks | ~$15-20 USD |
+| Generación de datos (Llama 3.3 70B) | Databricks | ~$15-20 USD |
 | Fine-tuning QLoRA (GPU T4) | Google Colab gratuito | $0 |
 | Almacenamiento (adapter + dataset) | Google Drive (15 GB) | $0 |
 | Evaluación y demo | Google Colab gratuito | $0 |
@@ -177,7 +176,7 @@ Documentación detallada en [`docs/decisiones_diseno.md`](docs/decisiones_diseno
 | Componente | Tecnología | Versión |
 |------------|-----------|---------|
 | Modelo base | Qwen/Qwen2.5-7B-Instruct | — |
-| Modelo teacher | Llama 3.1 70B (Databricks) | — |
+| Modelo teacher | Llama 3.3 70B (Databricks) | — |
 | Fine-tuning | QLoRA (peft + trl + bitsandbytes) | 0.12.0 / 0.10.1 / 0.43.3 |
 | Framework LLM | transformers | 4.44.0 |
 | Agente | LangChain + LangChain Community | 0.2.16 |

@@ -14,7 +14,7 @@ Se propone un agente de IA especializado que asista a CTOs en tareas contractual
 
 ### 1.3 Objetivos
 - Diseñar e implementar un pipeline completo de fine-tuning con QLoRA sobre un LLM open-source
-- Generar un dataset sintético de contratos tecnológicos usando un modelo teacher (Llama 3.1 70B)
+- Generar un dataset sintético de contratos tecnológicos usando un modelo teacher (Llama 3.3 70B)
 - Evaluar cuantitativamente la mejora del fine-tuning frente al modelo base
 - Construir un agente LangChain con 4 herramientas especializadas en tareas contractuales
 - Lograr reproducibilidad total con un costo inferior a $20 USD
@@ -42,7 +42,7 @@ LangChain permite construir agentes que combinan LLMs con herramientas externas 
 ### 3.1 Arquitectura General
 
 ```
-FASE 1: Generación de Datos → Llama 3.1 70B (Databricks) → JSONL
+FASE 1: Generación de Datos → Llama 3.3 70B (Databricks) → JSONL
 FASE 2: Fine-Tuning → Qwen2.5-7B-Instruct + QLoRA (Colab GPU T4) → Adapter LoRA
 FASE 3: Evaluación → ROUGE-L + BERTScore → Métricas JSON
 FASE 4: Demo → Agente LangChain con 4 herramientas → Análisis contractual
@@ -59,7 +59,7 @@ Se eligió fine-tuning sobre RAG (Retrieval-Augmented Generation) por las siguie
 ## 4. Pipeline de Datos
 
 ### 4.1 Generación Sintética
-Se utilizó Llama 3.1 70B como modelo teacher a través de la API de Databricks para generar 1000 ejemplos sintéticos distribuidos en 4 tipos de tarea:
+Se utilizó Llama 3.3 70B como modelo teacher a través de la API de Databricks para generar 1000 ejemplos sintéticos distribuidos en 4 tipos de tarea:
 - `analizar_clausula` (250 ejemplos)
 - `comparar_propuestas` (250 ejemplos)
 - `alerta_renovacion` (250 ejemplos)

@@ -52,7 +52,7 @@
 
 ## 4. Datos Sintéticos sobre Datos Reales
 
-**Decisión:** Generar datos de entrenamiento sintéticos usando un modelo teacher (Llama 3.1 70B).
+**Decisión:** Generar datos de entrenamiento sintéticos usando un modelo teacher (Llama 3.3 70B).
 
 **Justificación:**
 - **Privacidad:** No se dispone de contratos reales etiquetados, y obtenerlos requeriría acuerdos de confidencialidad complejos.
@@ -78,11 +78,11 @@
 
 ## 6. Databricks Free Edition para Generación de Datos
 
-**Decisión:** Usar la API de Databricks con Llama 3.1 70B para generar el dataset sintético.
+**Decisión:** Usar el AI Gateway de Databricks con Llama 3.3 70B para generar el dataset sintético.
 
 **Justificación:**
 - **Costo controlado:** Pay-per-token con costo estimado de $15-20 USD para 1000 ejemplos.
-- **Calidad:** Llama 3.1 70B produce respuestas de alta calidad como modelo teacher.
+- **Calidad:** Llama 3.3 70B (dic 2024) produce respuestas de alta calidad como modelo teacher, con mejor seguimiento de instrucciones que la versión 3.1.
 - **Compatibilidad:** API compatible con OpenAI SDK, facilitando la integración.
 
 **Alternativas descartadas:**
