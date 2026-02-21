@@ -124,6 +124,11 @@ Los CTOs gestionan decenas de contratos con proveedores tecnológicos (AWS, Azur
 | 3 | CRM SaaS venciendo en 45 días, USD 120K/año, satisfacción 6.5/10 | `alerta_renovacion` |
 
 4. Se ejecuta el agente completo con una consulta multiherramienta que encadena análisis, comparación y negociación
+5. Se lanza una **interfaz interactiva con Gradio** que permite:
+   - Subir un contrato en `.txt` o `.pdf` y analizarlo con cualquier herramienta
+   - Comparar dos propuestas pegando el texto de cada una
+   - Hacer consultas libres al agente ReAct que encadena herramientas automáticamente
+   - Genera un link público temporal para compartir la demo
 
 **Nota:** Todas las respuestas incluyen aviso legal indicando que el análisis es asistido por IA.
 
